@@ -30,13 +30,11 @@ const responsivetext = {
 function Details() {
   const { id } = useParams();
   const { eps } = useSelector((state: state) => state.episodes);
-  console.log(eps.payload, "episodes");
 
   return (
     <>
       {eps?.payload?.map((item: any, idx) => {
         if (item?.id == id) {
-          console.log("item", item);
           return (
             <div key={idx} className="episode-info">
               <Flex
