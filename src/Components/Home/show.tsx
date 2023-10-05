@@ -62,7 +62,7 @@ function Show(props: ShowProps) {
   return (
     <Flex
       position={"relative"}
-      flexDir={"row"}
+      flexDir={"column"}
       justify={"flex-end"}
       className="show-infos"
       align={"flex-start"}

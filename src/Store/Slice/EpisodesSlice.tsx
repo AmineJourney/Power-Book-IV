@@ -4,7 +4,6 @@ import StatusCode from "../Status";
 export const getEpisodes = createAsyncThunk("episodes", async () => {
   const data = await fetch("https://api.tvmaze.com/shows/46213/episodes");
   const result = await data.json();
-  //console.log("eps", typeof result);
   return result;
 });
 

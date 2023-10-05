@@ -1,24 +1,11 @@
 import { styled } from "styled-components";
 
-export const HomeWrapper = styled.div`
-  display: flex;
-  position: fixed;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(to right, #a9f7f7, #ffc0cb) !important ;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -2;
-`;
-
 export const CarouselContainer = styled.div`
   position: absolute;
   bottom: 5px;
   left: 20px;
   right: 20px;
+  border-radius: 4px;
 `;
 
 export const EpisodeBox = styled.div`
@@ -26,12 +13,23 @@ export const EpisodeBox = styled.div`
     0 0 0 2px rgba(255, 255, 255, 0), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
   width: fit-content;
   block-size: fit-content;
-  max-width: 300px;
+  min-width: 400px;
   margin: 5rem 5rem;
+  border-radius: 10px;
+  & img {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+  }
+  & :hover {
+    scale: 110%;
+    transition: all 0.4s ease;
+  }
 `;
 
 export const Epinfos = styled.div`
-  background: linear-gradient(to right, #008000.200, #ffc0cb.500) !important ;
+  height: auto;
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;

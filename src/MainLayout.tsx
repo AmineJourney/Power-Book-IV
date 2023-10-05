@@ -42,7 +42,6 @@ function MainLayout() {
   const dispatch = useDispatch<AppDispatch>();
   const { show } = useSelector((state: State) => state.show);
   const { eps, status } = useSelector((state: State) => state.episodes);
-  //console.log("epx", eps.payload);
 
   useEffect(() => {
     dispatch(getEpisodes()).then((result) => {
