@@ -46,7 +46,12 @@ function NavBar() {
         w={"100%"}
         zIndex={3}
       >
-        <Flex h={20} alignItems={"center"} justifyContent={"space-between"}>
+        <Flex
+          h={20}
+          alignItems={"center"}
+          justifyContent={"space-between"}
+          gap={8}
+        >
           <IconButton
             size={"lg"}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
