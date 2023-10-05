@@ -62,7 +62,7 @@ function Details() {
                 ></Flex>
                 <Button
                   zIndex={5}
-                  bottom={20}
+                  bottom={{ base: 10, xl: 20 }}
                   left={20}
                   size={"lg"}
                   position={"relative"}
