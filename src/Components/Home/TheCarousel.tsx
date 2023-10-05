@@ -3,6 +3,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { EpisodeBox, Epinfos } from "../Styles/StyledComps";
 import { Link as RouterLk } from "react-router-dom";
+import { Text } from "@chakra-ui/react";
 
 const responsive = {
   superLargeDesktop: {
@@ -44,8 +45,12 @@ export default function TheCarousel({ episodes }: carouselProps) {
             <EpisodeBox className="episode">
               <img src={item?.image?.medium} alt="img" />
               <Epinfos className="episode-info-container">
-                <h1> S{item?.season} -</h1>
-                <h1>EP{item?.number}</h1>
+                <Text color={"whiteAlpha.900"} fontSize={"md"}>
+                  S{item?.season} -
+                </Text>
+                <Text color={"whiteAlpha.900"} fontSize={"md"}>
+                  EP{item?.number}
+                </Text>
               </Epinfos>
             </EpisodeBox>
           </RouterLk>
