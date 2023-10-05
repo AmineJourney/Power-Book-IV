@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 import React from "react";
 import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
 
-type state = {
+type Episodes = {
   episodes: {
-    eps: {
+    episodeList: {
       payload: Array<Object>;
     };
     status: string;
@@ -13,7 +13,7 @@ type state = {
 };
 
 const responsiveFonttitle = {
-  base: "5xl",
+  base: "3xl",
   sm: "6xl",
   md: "7xl",
   lg: "8xl",
@@ -29,11 +29,10 @@ const responsivetext = {
 
 function Details() {
   const { id } = useParams();
-  const { eps } = useSelector((state: state) => state.episodes);
-
+  const { episodeList } = useSelector((state: Episodes) => state.episodes);
   return (
     <>
-      {eps?.payload?.map((item: any, idx) => {
+      {episodeList?.payload?.map((item: any, idx) => {
         if (item?.id == id) {
           return (
             <div key={idx} className="episode-info">
@@ -84,13 +83,13 @@ function Details() {
                   display={"flex"}
                   justifyContent={"flex-end"}
                   height={"100%"}
-                  flexDir={["column", "column", "row", "row"]}
+                  flexDir={["column", "column", "column", "row"]}
                   alignItems={"flex-end"}
                   className="ep-infos"
                   position={"relative"}
                   gap={30}
                   top={200}
-                  mt={{ base: 5, sm: 8, md: 10, lg: 20, xl: 40 }}
+                  mt={{ base: 5, sm: 8, md: 20, lg: 20, xl: 40 }}
                   ml={{ base: 10, sm: 10, md: 20 }}
                   mr={{ base: 10, sm: 10, md: 20 }}
                   h={{ base: 100, sm: 320, md: 150, lg: 300 }}
@@ -107,7 +106,7 @@ function Details() {
                   >
                     {item?.name}
                   </Heading>
-                  <Flex flexDir={"column"} gap={5}>
+                  <Flex flexDir={"column"} gap={{ base: 1, xl: 5 }}>
                     <Text
                       fontWeight="normal"
                       fontSize={responsivetext}

@@ -8,7 +8,7 @@ export const getEpisodes = createAsyncThunk("episodes", async () => {
 });
 
 const initialState = {
-  eps: [],
+  episodeList: [],
   status: "idle",
 };
 
@@ -24,7 +24,7 @@ const EpisodesSlice = createSlice({
     },
     getEpisodesFulfilled: (state, action) => {
       state.status = StatusCode.SUCCESS_EPS;
-      state.eps = action.payload;
+      state.episodeList = action.payload;
     },
   },
 });

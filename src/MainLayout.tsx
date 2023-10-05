@@ -1,4 +1,3 @@
-// MainLayout.js
 import React, { useEffect } from "react";
 import { Outlet, useMatch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -28,9 +27,10 @@ type State = {
       };
     };
   };
-
+};
+type Episodes = {
   episodes: {
-    eps: {
+    episodeList: {
       payload: Array<Object>;
     };
     status: string;
@@ -41,7 +41,9 @@ function MainLayout() {
   let match = useMatch("/");
   const dispatch = useDispatch<AppDispatch>();
   const { show } = useSelector((state: State) => state.show);
-  const { eps, status } = useSelector((state: State) => state.episodes);
+  const { episodeList, status } = useSelector(
+    (state: Episodes) => state.episodes
+  );
 
   useEffect(() => {
     dispatch(getEpisodes()).then((result) => {
@@ -54,7 +56,7 @@ function MainLayout() {
     });
   }, [dispatch]);
 
-  if (status === StatusCode.SUCCESS_EPS)
+  if (status === StatusCode.SUCCESS_EPS) {
     return (
       <>
         <Flex
@@ -62,24 +64,25 @@ function MainLayout() {
           w={"100%"}
           direction={"row"}
           position={"absolute"}
-          bgGradient="linear(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,1) 100%)"
+          bgGradient={{
+            xl: "linear(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,1) 100%)",
+          }}
         >
           <Flex
             position={"absolute"}
             bgImage={show?.payload?.image?.original}
-            w={"65%"}
+            w={{ base: "100%", xl: "65%" }}
             h={"100%"}
             gap={0}
             bgSize={"cover"}
-            objectFit={"fill"}
+            objectFit={"none"}
             bgRepeat={"no-repeat"}
             zIndex={-1}
-            border={"0px"}
           />
 
           {match ? (
             <Show
-              payload={eps.payload}
+              payload={episodeList.payload}
               title={show?.payload?.name}
               summary={show?.payload?.summary}
               genres={show?.payload?.genres}
@@ -93,7 +96,7 @@ function MainLayout() {
         </Flex>
       </>
     );
-  if (status === StatusCode.ERROR_S) return <Error />;
+  } else if (status === StatusCode.ERROR_S) return <Error />;
   else
     return (
       <div>
