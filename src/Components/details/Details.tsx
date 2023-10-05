@@ -33,7 +33,7 @@ function Details() {
   return (
     <>
       {episodeList?.payload?.map((item: any, idx) => {
-        if (item?.id == id) {
+        if (item?.id.toString() === id) {
           return (
             <div key={idx} className="episode-info">
               <Flex
@@ -43,7 +43,9 @@ function Details() {
                 position={"absolute"}
                 alignItems={"flex-end"}
                 justify={"flex-start"}
-                bgGradient="linear(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 90%, rgba(0,0,0,1) 100%)"
+                bgGradient={{
+                  xl: "linear(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 60%, rgba(0,0,0,1) 100%)",
+                }}
               >
                 <Flex
                   position={"absolute"}
@@ -148,7 +150,7 @@ function Details() {
               </Flex>
             </div>
           );
-        }
+        } else return null;
       })}
     </>
   );
