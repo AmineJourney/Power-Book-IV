@@ -1,8 +1,8 @@
 html {
-  height: 100vh;
+  height: 100svh;
 }
 body {
-  height: 100vh;
+  height: 100svh;
   overflow-y: hidden;
 }
 #root {

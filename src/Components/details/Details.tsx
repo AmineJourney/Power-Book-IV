@@ -51,7 +51,7 @@ function Details() {
                   position={"absolute"}
                   bgImage={item?.image?.original}
                   w={"100%"}
-                  h={"100vh"}
+                  h={"100svh"}
                   gap={0}
                   bgSize={"cover"}
                   objectFit={"fill"}

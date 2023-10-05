@@ -72,7 +72,7 @@ function MainLayout() {
             position={"absolute"}
             bgImage={show?.payload?.image?.original}
             w={{ base: "100%", xl: "65%" }}
-            h={"100%"}
+            h={"100svh"}
             gap={0}
             bgSize={"cover"}
             objectFit={"none"}
