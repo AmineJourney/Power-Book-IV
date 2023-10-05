@@ -13,18 +13,20 @@ type Episodes = {
 };
 
 const responsiveFonttitle = {
-  base: "3xl",
-  sm: "6xl",
-  md: "7xl",
-  lg: "8xl",
-  xl: "9xl",
+  base: "4xl",
+  sm: "5xl",
+  md: "6xl",
+  lg: "7xl",
+  xl: "8xl",
+  "2xl": "9xl",
 };
 const responsivetext = {
   base: "sm",
-  sm: "md",
+  sm: "sm",
   md: "lg",
   lg: "xl",
-  xl: "xl",
+  xl: "2xl",
+  "2xl": "2xl",
 };
 
 function Details() {
@@ -50,11 +52,11 @@ function Details() {
                 <Flex
                   position={"absolute"}
                   bgImage={item?.image?.original}
-                  w={"100%"}
+                  w={{ base: "100%", xl: "65%" }}
                   h={"100svh"}
                   gap={0}
                   bgSize={"cover"}
-                  objectFit={"fill"}
+                  objectFit={"none"}
                   bgRepeat={"no-repeat"}
                   zIndex={-1}
                 ></Flex>
@@ -69,7 +71,7 @@ function Details() {
                 </Button>
               </Flex>
               <Flex
-                pt={100}
+                pt={{ base: 100, sm: 200, md: 0, lg: 0, xl: 0 }}
                 flexDir={"row"}
                 justify={"flex-start"}
                 align={"flex-start"}
@@ -83,18 +85,16 @@ function Details() {
                 />
                 <Flex
                   display={"flex"}
-                  justifyContent={"flex-end"}
-                  height={"100%"}
+                  justifyContent={"start"}
+                  height={"auto"}
                   flexDir={["column", "column", "column", "row"]}
                   alignItems={"flex-end"}
                   className="ep-infos"
                   position={"relative"}
                   gap={30}
-                  top={200}
                   mt={{ base: 5, sm: 8, md: 20, lg: 20, xl: 40 }}
                   ml={{ base: 10, sm: 10, md: 20 }}
                   mr={{ base: 10, sm: 10, md: 20 }}
-                  h={{ base: 100, sm: 320, md: 150, lg: 300 }}
                 >
                   <Heading
                     h={"auto"}
