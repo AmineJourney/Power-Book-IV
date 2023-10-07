@@ -32,30 +32,28 @@ type carouselProps = {
 };
 
 export default function TheCarousel({ episodes }: carouselProps) {
-  if (episodes.length > 0) {
-    return (
-      <Carousel responsive={responsive} itemClass="carousel-object">
-        {episodes?.map((item: any) => (
-          <RouterLk
-            to={`/episode/${item.id}`}
-            key={item.id}
-            className="episode-link"
-            style={{ height: "100%", width: "100%" }}
-          >
-            <EpisodeBox className="episode">
-              <img src={item?.image?.medium} alt="img" />
-              <Epinfos className="episode-info-container">
-                <Text color={"whiteAlpha.900"} fontSize={"md"}>
-                  S{item?.season} -
-                </Text>
-                <Text color={"whiteAlpha.900"} fontSize={"md"}>
-                  EP{item?.number}
-                </Text>
-              </Epinfos>
-            </EpisodeBox>
-          </RouterLk>
-        ))}
-      </Carousel>
-    );
-  } else return <div>ERROR</div>;
+  return (
+    <Carousel responsive={responsive} itemClass="carousel-object">
+      {episodes?.map((item: any) => (
+        <RouterLk
+          to={`/episode/${item.id}`}
+          key={item.id}
+          className="episode-link"
+          style={{ height: "100%", width: "100%" }}
+        >
+          <EpisodeBox className="episode">
+            <img src={item?.image?.medium} alt="img" />
+            <Epinfos className="episode-info-container">
+              <Text color={"whiteAlpha.900"} fontSize={"md"}>
+                S{item?.season} -
+              </Text>
+              <Text color={"whiteAlpha.900"} fontSize={"md"}>
+                EP{item?.number}
+              </Text>
+            </Epinfos>
+          </EpisodeBox>
+        </RouterLk>
+      ))}
+    </Carousel>
+  );
 }

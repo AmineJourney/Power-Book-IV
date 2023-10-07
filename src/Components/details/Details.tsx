@@ -35,8 +35,8 @@ function Details() {
   return (
     <>
       {episodeList?.payload?.map((item: any, idx) => {
-        if (item?.id.toString() === id) {
-          return (
+        return (
+          item?.id.toString() === id && (
             <div key={idx} className="episode-info">
               <Flex
                 h={"100%"}
@@ -149,8 +149,8 @@ function Details() {
                 </Flex>
               </Flex>
             </div>
-          );
-        } else return null;
+          )
+        );
       })}
     </>
   );
