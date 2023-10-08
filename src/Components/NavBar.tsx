@@ -40,7 +40,7 @@ function NavBar() {
     <>
       <Box
         px={10}
-        bg={"#0000000"}
+        //bgColor={"#0000000"}
         position={"fixed"}
         className="navbar"
         w={"100%"}
